@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import authStore from './auth-store'
+import Vue from "vue";
+import Vuex from "vuex";
+import authStore from "./auth-store";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 const store = new Vuex.Store({
-    modules:{
-        authStore
-    }
-})
+  modules: {
+    authStore
+  }
+});
 
-export default store
+export default store;
