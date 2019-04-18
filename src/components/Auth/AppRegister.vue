@@ -85,7 +85,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import ErrorForm from "@/components/Partials/ErrorForm";
+import ErrorForm from "@/components/partials/ErrorForm";
 export default {
   components: {
     ErrorForm
