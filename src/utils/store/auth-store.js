@@ -48,7 +48,7 @@ export default {
     async logout({ commit }) {
       authService.logout();
       commit("SET_DATA", { user: null });
-      router.push({name:'login'})
+      router.push({ name: "login" });
     }
   },
 

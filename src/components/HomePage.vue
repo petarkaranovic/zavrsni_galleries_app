@@ -9,10 +9,9 @@
         <filterField @search="search">Filter Galleries</filterField>
         <hr>
       </div>
-      <div>
+      <div class="gallery-list">
         <div v-for="gallery in galleries" :key="gallery.id" class="my-galleries">
           <gallery-row :gallery="gallery"/>
-          <hr>
         </div>
       </div>
       <button

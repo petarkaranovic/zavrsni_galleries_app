@@ -1,5 +1,5 @@
 <template>
-<div class="galleries">
+  <div class="galleries">
     <div class="card">
       <img class="card-img-top" :src="gallery.images[0].url" alt="Card image cap">
       <div class="card-body">
@@ -21,10 +21,12 @@ export default {
 };
 </script>
 <style>
- .card {
-  width: 18rem;
-  display: flex;
-  flex-grow: 1;
+.card {
+  width: 12rem;
+  margin: 30px 10px;
+}
+.card-body {
+  min-height: 220px;
 }
 </style>
 

@@ -1,16 +1,16 @@
 <template>
   <div class="container jumbotron">
-    <div class="container">
+    <div>
       <filter-field @search="search"></filter-field>
     </div>
-    <div class="container jumbotron">
+        <div class="gallery-list">
       <template v-if="authorsGalleries">
         <div v-for="gallery in authorsGalleries" :key="gallery.id" class="authors-galleries">
-          <div class="card" style="width:18rem">
+          <div class="card">
             <img :src="gallery.images[0].url" alt="..." class="card-img-top">
             <div class="card-body">
               <router-link :to="{name:'single-gallery', params: {id: Number(gallery.id)}}">
-                <h4 class="card-title">{{ gallery.title }}</h4>
+                <h5 class="card-title">{{ gallery.title }}</h5>
               </router-link>
               <p
                 v-if="gallery.user"
@@ -21,7 +21,7 @@
           </div>
         </div>
       </template>
-    </div>
+        </div>
     <button
       v-show="page != lastPage"
       @click="loadMore"
@@ -85,20 +85,15 @@ export default {
 };
 </script>
 
-<style scoped>
-/* .my-container {
-  display: flex;
-  flex-wrap: unset;
-  justify-content: space-around;
-} */
+<style>
 #filterField {
   margin: auto;
 }
-.my-galleries {
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  border: 1px solid grey;
+ .card {
+  width: 12rem;
+  margin: 30px 10px;
+}
+.card-body {
+  min-height: 220px;
 }
 </style>

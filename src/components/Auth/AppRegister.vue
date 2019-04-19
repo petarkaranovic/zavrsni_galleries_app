@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Register</h2>
-    <form @submit.prevent="onSubmit">
+    <form @submit.prevent="onSubmit" class="m-auto">
+      <h2>Register</h2>
       <div class="form-group">
         <label for="first_name">First name</label>
         <input
@@ -109,5 +109,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+form {
+  width: 600px;
+}
 </style>

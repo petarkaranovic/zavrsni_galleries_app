@@ -3,17 +3,17 @@
     <ul class="list-group">
       <h1 class="list-group-item">{{gallery.title}}</h1>
       <li class="list-group-item">
-        <b>Created By:</b>
+        <b>Created By: </b>
         <router-link
           :to="{ name: 'authors-galleries', params: {id: Number(galleryUser.id)} }"
         >{{galleryUser.first_name}} {{galleryUser.last_name}}</router-link>
       </li>
       <li class="list-group-item">
-        <b>Created at:</b>
+        <b>Created at: </b>
         {{gallery.created_at}}
       </li>
       <li class="list-group-item">
-        <b>Gallery Description:</b>
+        <b>Gallery Description: </b>
         {{ gallery.description }}
       </li>
     </ul>

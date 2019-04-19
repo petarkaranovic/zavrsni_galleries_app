@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Login</h2>
-    <form @submit.prevent="onSubmit">
+    <form @submit.prevent="onSubmit" class="m-auto">
+      <h2>Login</h2>
       <label for="email">Email</label>
       <input type="email" class="form-control" placeholder="Email" v-model="user.email" required>
       <br>
@@ -16,11 +16,12 @@
       <br>
       <br>
       <button type="submit" class="btn btn-dark">Login</button>
+      <div class="mt-2">
+        <router-link :to="{name:'register'}">Please register if you dont have an account</router-link>
+      </div>
     </form>
     <br>
-    <small>
-      <router-link :to="{name:'register'}">Please register if you dont have an account</router-link>
-    </small>
+    <small></small>
     <error-form v-if="errors">{{ errors }}</error-form>
   </div>
 </template>
@@ -51,5 +52,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+form {
+  width: 600px;
+}
 </style>

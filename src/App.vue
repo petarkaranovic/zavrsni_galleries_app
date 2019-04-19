@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav-bar/>
-    <router-view/>
+    <router-view class="container"/>
   </div>
 </template>
 
@@ -14,4 +14,11 @@ export default {
   }
 };
 </script>
+<style>
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
+
 
