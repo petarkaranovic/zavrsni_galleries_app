@@ -35,6 +35,36 @@ class GalleryService {
   deleteGallery(id) {
     return http.delete(`gallery/${id}`);
   }
+  authorsGalleries(id,term='',page=1){
+    return http.get(`authors-galleries/${id}`,{
+      params:{
+        id,
+        term,
+        page
+      }
+    })
+    .then( ({data}) => {
+      return data
+  });
+}
+  myGalleries(term='',page=1){
+    return http.get('my-galleries',{
+      params:{
+        term,
+        page
+      }
+    })
+    .then(({data})=>data);  
+  }
+  addComment({content,id}){
+    return http.post(`my-galleries/${id}`,{
+      content
+    })
+    .then(({data})=>data);
+  }
+  deleteComment(id){
+    return http.delete(`comment/${id}`);
+  }
 }
 
 const galleryService = new GalleryService();

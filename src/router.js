@@ -20,7 +20,7 @@ const routes = [
   { path: "/my-galleries", name: "my-galleries", meta: { auth: true } },
   { path: "/create", name: "create-gallery", meta: { auth: true } },
   {
-    path: "/authors-galleries/:id",
+    path: "/authors-galleries/:id/",
     name: "authors-galleries",
     component: AuthorsGalleries,
     meta: { auth: true }
@@ -34,7 +34,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const isAuth = !!localStorage.getItem("user");
+  const isAuth = !!localStorage.getItem("token");
 
   if (isAuth && to.meta.guest) {
     return next({ name: "home" });

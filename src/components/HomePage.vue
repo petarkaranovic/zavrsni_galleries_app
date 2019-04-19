@@ -4,9 +4,10 @@
       <h2>We are sorry. There are no created galleries :(</h2>
     </div>
     <template v-if="galleries">
-      <h1>All galleries</h1>
+      <h1 class="container">All galleries</h1>
       <div class="SearchGalleries">
         <filterField @search="search">Filter Galleries</filterField>
+        <br>
       </div>
       <div class="container">
         <div v-for="(gallery,key) in galleries" :key="key" class="my-galleries">
