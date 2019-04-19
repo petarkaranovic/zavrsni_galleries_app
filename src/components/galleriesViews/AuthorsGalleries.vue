@@ -1,25 +1,34 @@
-<template lang="html">
-    <div>
-        <div class="container" >
-            <filter-field @search="search"> </filter-field>
-        </div>
-        <div class="container jumbotron">
-            <template v-if="authorsGalleries">
-                <div v-for="gallery in authorsGalleries" :key="gallery.id" class="my-galleries">
-                    <div class="card" style="width:18rem">
-                        <img :src="gallery.images[0].url" alt="..." class="card-img-top">
-                        <div class="card-body">
-                            <router-link :to="{name:'single-gallery', params: {id: Number(gallery.id)}}">
-                                <h4 class="card-title">{{ gallery.title }}</h4>
-                            </router-link>
-                            <p v-if="gallery.user" class="card-text">{{ gallery.user.first_name }} {{ gallery.user.last_name }}</p>
-                            <p class="card-text">{{ gallery.created_at }}</p>
-                        </div>
-                    </div>
-                </div> 
-            </template>
-        </div>
+<template>
+  <div class="container jumbotron">
+    <div class="container">
+      <filter-field @search="search"></filter-field>
     </div>
+    <div class="container jumbotron">
+      <template v-if="authorsGalleries">
+        <div v-for="gallery in authorsGalleries" :key="gallery.id" class="authors-galleries">
+          <div class="card" style="width:18rem">
+            <img :src="gallery.images[0].url" alt="..." class="card-img-top">
+            <div class="card-body">
+              <router-link :to="{name:'single-gallery', params: {id: Number(gallery.id)}}">
+                <h4 class="card-title">{{ gallery.title }}</h4>
+              </router-link>
+              <p
+                v-if="gallery.user"
+                class="card-text"
+              >{{ gallery.user.first_name }} {{ gallery.user.last_name }}</p>
+              <p class="card-text">{{ gallery.created_at }}</p>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+    <button
+      v-show="page != lastPage"
+      @click="loadMore"
+      class="btn btn-secondary"
+      type="button"
+    >Load more content</button>
+  </div>
 </template>
 
 <script>
@@ -33,13 +42,18 @@ export default {
     next(vm => {
       galleryService
         .authorsGalleries(vm.$route.params.id)
-        .then(response => (vm.authorsGalleries = response.data));
+        .then(
+          response => (
+            (vm.authorsGalleries = response.data),
+            (vm.lastPage = response.last_page)
+          )
+        );
     });
   },
   data() {
     return {
       authorsGalleries: [],
-      term: "",
+      term: null,
       page: 1,
       lastPage: null,
       id: null
@@ -72,11 +86,11 @@ export default {
 </script>
 
 <style scoped>
-.my-container {
+/* .my-container {
   display: flex;
   flex-wrap: unset;
   justify-content: space-around;
-}
+} */
 #filterField {
   margin: auto;
 }

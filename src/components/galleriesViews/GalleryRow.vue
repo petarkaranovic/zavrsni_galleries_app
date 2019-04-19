@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="card" style="width: 18rem;">
+<div class="galleries">
+    <div class="card">
       <img class="card-img-top" :src="gallery.images[0].url" alt="Card image cap">
       <div class="card-body">
         <router-link :to="{name:'single-gallery', params:{id:Number(gallery.id) }}">
@@ -20,10 +20,11 @@ export default {
   props: ["gallery"]
 };
 </script>
-<style lang="css">
-.card {
-  width: 12rem;
-  margin: 1rem 0.1rem;
+<style>
+ .card {
+  width: 18rem;
+  display: flex;
+  flex-grow: 1;
 }
 </style>
 

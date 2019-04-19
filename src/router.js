@@ -5,27 +5,62 @@ import AppRegister from "@/components/auth/AppRegister";
 import HomePage from "@/components/HomePage";
 import AuthorsGalleries from "@/components/galleriesViews/AuthorsGalleries";
 import SingleGallery from "@/components/galleriesViews/SingleGallery";
+import MyGalleries from "@/components/galleriesViews/MyGalleries";
+import EditGallery from "@/components/galleriesViews/EditGallery";
 
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", component: HomePage, name: "home" },
-  { path: "/login", name: "login", component: AppLogin, meta: { guest: true } },
+  {
+    path: "/",
+    component: HomePage,
+    name: "home"
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: AppLogin,
+    meta: {
+      guest: true
+    }
+  },
   {
     path: "/register",
     name: "register",
     component: AppRegister,
-    meta: { guest: true }
+    meta: {
+      guest: true
+    }
   },
-  { path: "/my-galleries", name: "my-galleries", meta: { auth: true } },
-  { path: "/create", name: "create-gallery", meta: { auth: true } },
+  {
+    path: "/my-galleries",
+    name: "my-galleries",
+    component: MyGalleries,
+    meta: {
+      auth: true
+    }
+  },
+  {
+    path: "/create",
+    name: "create-gallery",
+    meta: {
+      auth: true
+    }
+  },
   {
     path: "/authors-galleries/:id/",
     name: "authors-galleries",
     component: AuthorsGalleries,
-    meta: { auth: true }
+    meta: {
+      auth: true
+    }
   },
-  { path: "/galleries/:id", name: "single-gallery", component: SingleGallery }
+  { path: "/galleries/:id", name: "single-gallery", component: SingleGallery },
+  {
+    path: "/edit/:id",
+    component: EditGallery,
+    name: "edit-gallery"
+  }
 ];
 
 const router = new VueRouter({
