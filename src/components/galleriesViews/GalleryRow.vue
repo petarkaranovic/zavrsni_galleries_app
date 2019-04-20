@@ -1,6 +1,6 @@
 <template>
   <div class="galleries">
-    <div class="card">
+    <div class="card" v-if="gallery.title">
       <img class="card-img-top" :src="gallery.images[0].url" alt="Card image cap">
       <div class="card-body">
         <router-link :to="{name:'single-gallery', params:{id:Number(gallery.id) }}">
@@ -17,7 +17,11 @@
 
 <script>
 export default {
-  props: ["gallery"]
+  props: {
+    gallery:{
+      type:Object,
+    }
+  },
 };
 </script>
 <style>
