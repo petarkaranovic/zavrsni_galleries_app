@@ -71,11 +71,8 @@
         <h1>No Comments For This Gallery</h1>
       </div>
       <div v-if="user">
-        <form @submit.prevent="addCommentForm">
           <p>Add Comment</p>
-          <textarea v-model="content" name="content" rows="8" cols="65"></textarea>
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Add Comment</button>
-        </form>
+          <textarea v-model="content"  @keydown.enter.prevent="addCommentForm" name="content" rows="8" cols="65"></textarea>
       </div>
     </div>
   </div>
