@@ -42,7 +42,7 @@
 
 <script>
 import galleryService from "@/utils/services/gallery-service";
-import filterField from "@/components/partials/SearchField";
+import filterField from "@/components/Partials/SearchField";
 export default {
   components: {
     filterField

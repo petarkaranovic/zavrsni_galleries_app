@@ -65,7 +65,7 @@
 
 <script>
 import galleryService from "@/utils/services/gallery-service";
-import ErrorForm from "@/components/partials/ErrorForm";
+import ErrorForm from "@/components/Partials/ErrorForm";
 export default {
     components:{
         ErrorForm

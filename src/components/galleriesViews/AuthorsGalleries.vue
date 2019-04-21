@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import filterField from "@/components/partials/SearchField";
+import filterField from "@/components/Partials/SearchField";
 import galleryService from "@/utils/services/gallery-service";
 export default {
   components: {

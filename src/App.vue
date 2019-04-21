@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import NavBar from "@/components/partials/NavBar";
+import NavBar from "@/components/Partials/NavBar";
 export default {
   name: "app",
   components: {
